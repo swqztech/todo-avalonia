@@ -1,0 +1,31 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MojiTodo.App"
+             RequestedThemeVariant="Light">
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+    <Application.Resources>
+        <Color x:Key="PageBg">#E8EEF6</Color>
+        <Color x:Key="TopBar">#F5F8FC</Color>
+        <Color x:Key="Accent">#4878C8</Color>
+        <Color x:Key="Title">#1E2834</Color>
+        <Color x:Key="Sub">#5A6676</Color>
+        <Color x:Key="Muted">#788291</Color>
+        <Color x:Key="Border">#D2DAE6</Color>
+        <Color x:Key="BtnBlue">#4882DC</Color>
+        <Color x:Key="ChipOn">#28303A</Color>
+        <Color x:Key="ChipOff">#F8FAFD</Color>
+
+        <SolidColorBrush x:Key="PageBgBrush" Color="{StaticResource PageBg}"/>
+        <SolidColorBrush x:Key="TopBarBrush" Color="{StaticResource TopBar}"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent}"/>
+        <SolidColorBrush x:Key="TitleBrush" Color="{StaticResource Title}"/>
+        <SolidColorBrush x:Key="SubBrush" Color="{StaticResource Sub}"/>
+        <SolidColorBrush x:Key="MutedBrush" Color="{StaticResource Muted}"/>
+        <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource Border}"/>
+        <SolidColorBrush x:Key="BtnBlueBrush" Color="{StaticResource BtnBlue}"/>
+        <SolidColorBrush x:Key="ChipOnBrush" Color="{StaticResource ChipOn}"/>
+        <SolidColorBrush x:Key="ChipOffBrush" Color="{StaticResource ChipOff}"/>
+    </Application.Resources>
+</Application>

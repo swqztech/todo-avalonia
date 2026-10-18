@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:MojiTodo"
+        x:Class="MojiTodo.MainWindow"
+        Title="墨迹清单"
+        Width="560" Height="640" MinWidth="480" MinHeight="520"
+        Background="{StaticResource PageBgBrush}"
+        FontFamily="Microsoft YaHei UI"
+        FontSize="13"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="{StaticResource TopBarBrush}" Padding="20,12">
+            <TextBlock Text="墨迹清单" FontWeight="SemiBold" Foreground="{StaticResource TitleBrush}"/>
+        </Border>
+
+        <Grid Margin="20,12,20,16" RowDefinitions="Auto,Auto,Auto,*,Auto">
+            <StackPanel Grid.Row="0" Margin="0,0,0,12">
+                <TextBlock Text="INK LIST" FontSize="11" FontWeight="Bold" Foreground="{StaticResource AccentBrush}"/>
+                <TextBlock x:Name="TxtDate" FontSize="20" FontWeight="Bold" Foreground="{StaticResource TitleBrush}" Margin="0,2,0,4"/>
+                <TextBlock Text="写下来，划掉，继续。支持导出 / 导入 / 粘贴 Markdown。" Foreground="{StaticResource SubBrush}" TextWrapping="Wrap"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1" Margin="0,0,0,10" ColumnDefinitions="*,Auto">
+                <TextBox x:Name="TxtInput" Padding="10,8" BorderBrush="{StaticResource BorderBrush}" KeyDown="OnInputKeyDown"/>
+                <Button Grid.Column="1" Content="加入" Background="{StaticResource BtnBlueBrush}" Foreground="White"
+                        FontWeight="SemiBold" Padding="16,8" Margin="8,0,0,0" Click="OnAdd"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="0,0,0,8" ColumnDefinitions="*,Auto">
+                <WrapPanel>
+                    <Button x:Name="BtnAll" Content="全部" Margin="0,0,6,6" Padding="10,6" Click="OnFilterAll"/>
+                    <Button x:Name="BtnActive" Content="未完成" Margin="0,0,6,6" Padding="10,6" Click="OnFilterActive"/>
+                    <Button x:Name="BtnDone" Content="已完成" Margin="0,0,6,6" Padding="10,6" Click="OnFilterDone"/>
+                    <Button Content="导出" Margin="0,0,6,6" Padding="10,6" Click="OnExport"/>
+                    <Button Content="导入" Margin="0,0,6,6" Padding="10,6" Click="OnImport"/>
+                    <Button Content="粘贴导入" Margin="0,0,6,6" Padding="10,6" Click="OnPaste"/>
+                </WrapPanel>
+                <TextBlock x:Name="TxtStats" Grid.Column="1" Foreground="{StaticResource MutedBrush}" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Border Grid.Row="3" Background="White" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="4" Margin="0,0,0,10">
+                <ListBox x:Name="TaskList" BorderThickness="0" Background="Transparent" DoubleTapped="OnEditTask">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="local:TodoRow">
+                            <StackPanel Orientation="Horizontal" Margin="4,6">
+                                <CheckBox IsChecked="{Binding Done}" VerticalAlignment="Center" Margin="0,0,8,0"
+                                          IsCheckedChanged="OnTaskCheckChanged"/>
+                                <TextBlock Text="{Binding Text}" Foreground="{StaticResource TitleBrush}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <Button Content="上移" Margin="0,0,6,0" Padding="10,6" Click="OnMoveUp"/>
+                <Button Content="下移" Margin="0,0,6,0" Padding="10,6" Click="OnMoveDown"/>
+                <Button Content="删除" Margin="0,0,6,0" Padding="10,6" Click="OnDelete"/>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>
