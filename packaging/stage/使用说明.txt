@@ -1,0 +1,7 @@
+墨迹清单（Avalonia 版）— 绿色版
+
+双击 todo-avalonia.exe 或 启动.bat。
+
+数据：%APPDATA%\todo-avalonia\todos.json
+
+需已安装 .NET 8 桌面运行时。

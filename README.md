@@ -6,3 +6,5 @@
 dotnet build -c Release
 dotnet run -c Release
 ```
+
+绿色版：`bash packaging/build.sh`（框架依赖，需 .NET 8 运行时）
